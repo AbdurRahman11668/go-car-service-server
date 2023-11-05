@@ -28,10 +28,10 @@ async function run() {
     // await client.connect();
 
 
-    const fitnessCollection = client.db("fitnessDB").collection("products");
+    const carCollection = client.db("carDB").collection("products");
 
     app.get("/products", async (req, res) => {
-      const cursor = fitnessCollection.find();
+      const cursor = carCollection.find();
       const result = await cursor.toArray();
       res.send(result);
     });
