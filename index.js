@@ -58,6 +58,7 @@ async function run() {
     // await client.connect();
 
     const carCollection = client.db("carDB").collection("products");
+    const purchaseCollection = client.db("carDB").collection("purchases");
 
     // auth related api
     // app.post("/jwt", logger, async (req, res) => {
@@ -89,10 +90,10 @@ async function run() {
     res.send(result);
   });
 
-  app.post("/products", async (req, res) => {
+  app.post("/purchases", async (req, res) => {
     const product = req.body;
     console.log(product);
-    const result = await carCollection.insertOne(product);
+    const result = await purchaseCollection.insertOne(product);
     res.send(result);
   });
 
