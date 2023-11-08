@@ -60,22 +60,6 @@ async function run() {
     const carCollection = client.db("carDB").collection("products");
     const purchaseCollection = client.db("carDB").collection("purchases");
 
-    // auth related api
-    // app.post("/jwt", logger, async (req, res) => {
-    //   const user = req.body;
-    //   console.log("user for token", user);
-    //   const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
-    //     expiresIn: "1h",
-    //   });
-
-    //   res
-    //     .cookie("token", token, {
-    //       httpOnly: true,
-    //       secure: true,
-    //       sameSite: "none",
-    //     })
-    //     .send({ success: true });
-    // });
 
     app.get("/products", async (req, res) => {
       const cursor = carCollection.find();
