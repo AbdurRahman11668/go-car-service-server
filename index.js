@@ -141,6 +141,12 @@ async function run() {
     res.send(result);
   });
 
+  app.get("/purchases", async (req, res) => {
+    const cursor = purchaseCollection.find();
+    const result = await cursor.toArray();
+    res.send(result);
+  });
+
   app.post("/purchases", async (req, res) => {
     const product = req.body;
     console.log(product);
@@ -148,12 +154,6 @@ async function run() {
     res.send(result);
   });
 
-  app.post("/cart", async (req, res) => {
-    const newProducts = req.body;
-    console.log(newProducts);
-    const result = await purchaseCollection.insertOne(newProducts);
-    res.send(result);
-  });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
