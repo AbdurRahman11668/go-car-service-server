@@ -116,6 +116,24 @@ async function run() {
     res.send(result);
   });
 
+  app.put("/products/:id", async (req, res) => {
+    const id = req.params.id;
+    const filter = { _id: new ObjectId(id) };
+    const options = { upsart: true };
+    const updateService = req.body;
+    const products = {
+      $set: {
+        service_name: updateService.service_name,
+        image: updateService.image,
+        area: updateService.area,
+        description: updateService.description,
+        price: updateService.price,
+      },
+    };
+    const result = await technologyCollection.updateOne(filter, products, options);
+    res.send(result);
+  });
+
   app.post("/purchases", async (req, res) => {
     const product = req.body;
     console.log(product);
