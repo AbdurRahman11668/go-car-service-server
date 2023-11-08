@@ -12,8 +12,9 @@ app.use(
   cors({
     origin: [
       // "http://localhost:5173", "http://localhost:5174",
-      "https://go-car-service.web.app/",
-      "https://go-car-service.firebaseapp.com/",
+      "https://go-car-service.web.app",
+      "https://go-car-service.firebaseapp.com",
+      "https://stunning-gaufre-8edb9f.netlify.app"
     ],
     credentials: true,
   })
