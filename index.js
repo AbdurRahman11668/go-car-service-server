@@ -130,7 +130,7 @@ async function run() {
         price: updateService.price,
       },
     };
-    const result = await technologyCollection.updateOne(filter, products, options);
+    const result = await carCollection.updateOne(filter, products, options);
     res.send(result);
   });
 
