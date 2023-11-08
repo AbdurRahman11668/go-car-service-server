@@ -148,6 +148,13 @@ async function run() {
     res.send(result);
   });
 
+  app.post("/cart", async (req, res) => {
+    const newProducts = req.body;
+    console.log(newProducts);
+    const result = await purchaseCollection.insertOne(newProducts);
+    res.send(result);
+  });
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
