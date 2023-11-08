@@ -134,6 +134,13 @@ async function run() {
     res.send(result);
   });
 
+  app.delete("/products/:id", async (req, res) => {
+    const id = req.params.id;
+    const query = { _id: new ObjectId(id) };
+    const result = await carCollection.deleteOne(query);
+    res.send(result);
+  });
+
   app.post("/purchases", async (req, res) => {
     const product = req.body;
     console.log(product);
