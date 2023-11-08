@@ -141,6 +141,7 @@ async function run() {
     res.send(result);
   });
 
+  // purchase Api
   app.get("/purchases", async (req, res) => {
     const cursor = purchaseCollection.find();
     const result = await cursor.toArray();
@@ -164,6 +165,7 @@ async function run() {
     // Ensures that the client will close when you finish/error
     // await client.close();
   }
+
 }
 run().catch(console.dir);
 
